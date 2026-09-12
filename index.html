@@ -1,0 +1,799 @@
+<!-- ============================= -->
+<!-- RÁDIO FLUI - PLAYER 3.0       -->
+<!-- ============================= -->
+
+<div id="radio-flui-player">
+
+  <!-- Metadata oficial FastCast4u - invisível -->
+  <span
+    id="flui-metadata"
+    class="cc_streaminfo"
+    data-type="song"
+    data-username="radioflui"
+  >Carregando ...</span>
+
+  <!-- CABEÇALHO -->
+  <div class="flui-header">
+
+    <div class="flui-logo">
+      <img
+        src="https://res.cloudinary.com/lfojj52z/image/upload/v1789082671/Logo_S%C3%ADmbolo_Oficial_Quadrada_Roxo.png"
+        alt="Rádio Flui"
+      >
+    </div>
+
+    <div class="flui-brand">
+      <div class="flui-name">RÁDIO FLUI</div>
+      <div class="flui-live">
+        <span class="flui-live-dot"></span>
+        AO VIVO
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AGORA TOCANDO -->
+  <div class="flui-now">
+
+    <div class="flui-now-label">
+      AGORA TOCANDO
+    </div>
+
+    <div id="flui-artist" class="flui-artist">
+      Rádio Flui
+    </div>
+
+    <div id="flui-title" class="flui-title">
+      Carregando música...
+    </div>
+
+  </div>
+
+  <!-- ONDAS -->
+  <div class="flui-waves" id="flui-waves">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="flui-controls">
+
+    <button
+      id="flui-play"
+      class="flui-button"
+      aria-label="Reproduzir"
+    >
+      ▶
+    </button>
+
+    <div class="flui-volume">
+
+      <span class="flui-volume-icon">🔊</span>
+
+      <input
+        id="flui-volume"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.8"
+      >
+
+    </div>
+
+  </div>
+
+  <!-- SLOGAN -->
+  <div class="flui-slogan">
+    Você sente. Você ouve. Você Flui.
+  </div>
+
+</div>
+
+
+<!-- ÁUDIO -->
+<audio
+  id="flui-audio"
+  preload="none"
+  crossorigin="anonymous"
+>
+  <source
+    src="https://eu8.fastcast4u.com/proxy/radioflui?mp=/stream"
+    type="audio/mpeg"
+  >
+</audio>
+
+
+<!-- SCRIPT OFICIAL FASTCAST4U -->
+<script
+  type="text/javascript"
+  src="https://eu8.fastcast4u.com/system/streaminfo.js">
+</script>
+
+
+<style>
+
+/* ============================= */
+/* RÁDIO FLUI PLAYER              */
+/* ============================= */
+
+#radio-flui-player {
+
+  width: 100%;
+  max-width: 430px;
+
+  margin: 20px auto;
+  padding: 25px;
+
+  box-sizing: border-box;
+
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(139,92,246,.28),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #0f172a,
+      #172554
+    );
+
+  border: 1px solid rgba(103,232,249,.25);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.35),
+    inset 0 0 30px rgba(56,189,248,.05);
+
+  color: white;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+}
+
+
+/* CABEÇALHO */
+
+.flui-header {
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+}
+
+
+.flui-logo {
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  padding: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #38bdf8,
+      #8b5cf6
+    );
+
+  box-shadow:
+    0 0 25px rgba(139,92,246,.35);
+
+}
+
+
+.flui-logo img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+
+  background: #0f172a;
+
+}
+
+
+.flui-brand {
+
+  flex: 1;
+
+}
+
+
+.flui-name {
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+}
+
+
+.flui-live {
+
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #67e8f9;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+}
+
+
+.flui-live-dot {
+
+  width: 7px;
+  height: 7px;
+
+  background: #67e8f9;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px #67e8f9;
+
+  animation: flui-pulse 1.5s infinite;
+
+}
+
+
+/* AGORA TOCANDO */
+
+.flui-now {
+
+  margin-top: 25px;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(15,23,42,.65);
+
+  border:
+    1px solid rgba(103,232,249,.12);
+
+}
+
+
+.flui-now-label {
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #67e8f9;
+
+  margin-bottom: 8px;
+
+}
+
+
+.flui-artist {
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  color: white;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+}
+
+
+.flui-title {
+
+  margin-top: 4px;
+
+  font-size: 14px;
+
+  color: #c4b5fd;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+}
+
+
+/* ONDAS */
+
+.flui-waves {
+
+  height: 55px;
+
+  margin: 20px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+
+}
+
+
+.flui-waves span {
+
+  width: 4px;
+
+  height: 15px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      to top,
+      #38bdf8,
+      #8b5cf6
+    );
+
+  animation:
+    flui-wave 1s ease-in-out infinite;
+
+  animation-play-state: paused;
+
+}
+
+
+.flui-waves span:nth-child(2) { animation-delay: .1s; }
+.flui-waves span:nth-child(3) { animation-delay: .2s; }
+.flui-waves span:nth-child(4) { animation-delay: .3s; }
+.flui-waves span:nth-child(5) { animation-delay: .4s; }
+.flui-waves span:nth-child(6) { animation-delay: .5s; }
+.flui-waves span:nth-child(7) { animation-delay: .6s; }
+.flui-waves span:nth-child(8) { animation-delay: .5s; }
+.flui-waves span:nth-child(9) { animation-delay: .4s; }
+.flui-waves span:nth-child(10) { animation-delay: .3s; }
+.flui-waves span:nth-child(11) { animation-delay: .2s; }
+.flui-waves span:nth-child(12) { animation-delay: .1s; }
+
+
+.flui-playing span {
+
+  animation-play-state: running;
+
+}
+
+
+/* CONTROLES */
+
+.flui-controls {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+}
+
+
+.flui-button {
+
+  width: 54px;
+  height: 54px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 20px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #38bdf8,
+      #8b5cf6
+    );
+
+  box-shadow:
+    0 8px 20px rgba(56,189,248,.25);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+
+}
+
+
+.flui-button:hover {
+
+  transform: scale(1.06);
+
+  box-shadow:
+    0 10px 28px rgba(139,92,246,.4);
+
+}
+
+
+.flui-volume {
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+
+.flui-volume-icon {
+
+  font-size: 16px;
+
+}
+
+
+#flui-volume {
+
+  width: 100%;
+
+  accent-color: #8b5cf6;
+
+}
+
+
+/* SLOGAN */
+
+.flui-slogan {
+
+  margin-top: 20px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+  color: #94a3b8;
+
+}
+
+
+/* ANIMAÇÕES */
+
+@keyframes flui-wave {
+
+  0%,100% {
+    height: 12px;
+  }
+
+  50% {
+    height: 42px;
+  }
+
+}
+
+
+@keyframes flui-pulse {
+
+  0%,100% {
+    opacity: .4;
+    transform: scale(.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+}
+
+
+/* ESCONDE O WIDGET ORIGINAL */
+
+#flui-metadata {
+
+  display: none !important;
+
+}
+
+</style>
+
+
+<script>
+
+(function() {
+
+  const audio =
+    document.getElementById("flui-audio");
+
+  const playButton =
+    document.getElementById("flui-play");
+
+  const volume =
+    document.getElementById("flui-volume");
+
+  const waves =
+    document.getElementById("flui-waves");
+
+  const artist =
+    document.getElementById("flui-artist");
+
+  const title =
+    document.getElementById("flui-title");
+
+  const metadata =
+    document.getElementById("flui-metadata");
+
+
+  /* VOLUME INICIAL */
+
+  audio.volume = 0.8;
+
+
+  /* PLAY / PAUSE */
+
+  playButton.addEventListener("click", function() {
+
+    if (audio.paused) {
+
+      audio.play()
+        .then(function() {
+
+          playButton.innerHTML = "❚❚";
+
+          waves.classList.add("flui-playing");
+
+        })
+        .catch(function(error) {
+
+          console.log(
+            "Erro ao reproduzir:",
+            error
+          );
+
+        });
+
+    } else {
+
+      audio.pause();
+
+      playButton.innerHTML = "▶";
+
+      waves.classList.remove(
+        "flui-playing"
+      );
+
+    }
+
+  });
+
+
+  /* VOLUME */
+
+  volume.addEventListener(
+    "input",
+    function() {
+
+      audio.volume =
+        parseFloat(this.value);
+
+    }
+  );
+
+
+  /* STATUS DO PLAYER */
+
+  audio.addEventListener(
+    "play",
+    function() {
+
+      playButton.innerHTML = "❚❚";
+
+      waves.classList.add(
+        "flui-playing"
+      );
+
+    }
+  );
+
+
+  audio.addEventListener(
+    "pause",
+    function() {
+
+      playButton.innerHTML = "▶";
+
+      waves.classList.remove(
+        "flui-playing"
+      );
+
+    }
+  );
+
+
+  /*
+   * REMOVE O CÓDIGO DE RASTREAMENTO
+   * DO FINAL DO NOME DA MÚSICA
+   *
+   * Exemplo:
+   * Giz [2x8c]
+   *
+   * vira:
+   * Giz
+   */
+
+  function limparCodigo(texto) {
+
+    return texto
+      .replace(/\s*\[[^\]]+\]\s*$/, "")
+      .trim();
+
+  }
+
+
+  /*
+   * ATUALIZA O TEXTO DO PLAYER
+   */
+
+  function atualizarMusica() {
+
+    if (!metadata) return;
+
+    let musica =
+      metadata.textContent.trim();
+
+
+    if (
+      !musica ||
+      musica === "Carregando ..." ||
+      musica === "Carregando..."
+    ) {
+
+      return;
+
+    }
+
+
+    musica =
+      limparCodigo(musica);
+
+
+    /*
+     * Se o servidor mandar:
+     *
+     * Artista - Música
+     *
+     * separa automaticamente.
+     */
+
+    const separador =
+      musica.indexOf(" - ");
+
+
+    if (separador !== -1) {
+
+      const nomeArtista =
+        musica.substring(
+          0,
+          separador
+        ).trim();
+
+      const nomeMusica =
+        musica.substring(
+          separador + 3
+        ).trim();
+
+
+      artist.textContent =
+        nomeArtista || "Rádio Flui";
+
+      title.textContent =
+        nomeMusica || musica;
+
+    } else {
+
+      artist.textContent =
+        "Rádio Flui";
+
+      title.textContent =
+        musica;
+
+    }
+
+  }
+
+
+  /*
+   * OBSERVA O WIDGET OFICIAL
+   *
+   * O streaminfo.js altera o conteúdo
+   * do span automaticamente.
+   */
+
+  const observer =
+    new MutationObserver(function() {
+
+      atualizarMusica();
+
+    });
+
+
+  observer.observe(
+    metadata,
+    {
+      childList: true,
+      characterData: true,
+      subtree: true
+    }
+  );
+
+
+  /*
+   * VERIFICAÇÃO DE SEGURANÇA
+   */
+
+  setInterval(
+    atualizarMusica,
+    3000
+  );
+
+
+  /*
+   * PRIMEIRA LEITURA
+   */
+
+  setTimeout(
+    atualizarMusica,
+    2000
+  );
+
+
+})();
+
+</script>
