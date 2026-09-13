@@ -2,7 +2,7 @@
 
 <style>
   body {
-    margin: 0;
+       margin: 0;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     background:
@@ -124,7 +124,40 @@
     .flui-about {
       padding: 22px;
     }
+  } 
+  .flu-mascote {
+  text-align: center;
+  margin: 20px auto 10px;
+  animation: fluFloat 3s ease-in-out infinite;
+}
+
+.flu-mascote img {
+  width: 150px;
+  max-width: 45vw;
+  height: auto;
+  display: inline-block;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+}
+
+@keyframes fluFloat {
+  0%, 100% {
+    transform: translateY(0);
   }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 600px) {
+  .flu-mascote img {
+    width: 120px;
+  }
+
+  .flu-mascote {
+    margin-top: 15px;
+  }
+}
 </style>
 
 <div class="flui-site">
@@ -149,7 +182,12 @@
       </p>
 
     </header>
-
+    <div class="flu-mascote">
+      <img
+        src="https://res.cloudinary.com/lfojj52z/image/upload/v1789330499/Flu.png"
+        alt="Flu - mascote da Rádio Flui"
+      >
+    </div>
 
   </div>
 
