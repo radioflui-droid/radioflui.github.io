@@ -1,8 +1,9 @@
+```html
 <!-- RÁDIO FLUI - NOVA PÁGINA -->
 
 <style>
   body {
-       margin: 0;
+    margin: 0;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     background:
@@ -66,11 +67,39 @@
     letter-spacing: 1px;
   }
 
+  /* =========================================
+     BANNER PRINCIPAL RÁDIO FLUI
+     ========================================= */
+
+  .banner-flui {
+    width: 100%;
+    margin: 25px auto 30px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.40),
+      0 0 35px rgba(139, 92, 246, 0.18);
+  }
+
+  .banner-flui img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* =========================================
+     ÁREA DO PLAYER
+     ========================================= */
+
   .flui-player-area {
     display: flex;
     justify-content: center;
-    margin: 0px auto 35px;
+    margin: 0 auto 35px;
   }
+
+  /* =========================================
+     SOBRE A RÁDIO
+     ========================================= */
 
   .flui-about {
     max-width: 720px;
@@ -95,6 +124,38 @@
     font-size: 15px;
   }
 
+  /* =========================================
+     MASCOTE FLU
+     ========================================= */
+
+  .flu-mascote {
+    text-align: center;
+    margin: 20px auto 10px;
+    animation: fluFloat 3s ease-in-out infinite;
+  }
+
+  .flu-mascote img {
+    width: 150px;
+    max-width: 45vw;
+    height: auto;
+    display: inline-block;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+  }
+
+  @keyframes fluFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* =========================================
+     RODAPÉ
+     ========================================= */
+
   .flui-footer {
     margin-top: 45px;
     padding: 25px 0;
@@ -103,7 +164,12 @@
     letter-spacing: 1px;
   }
 
+  /* =========================================
+     CELULAR
+     ========================================= */
+
   @media (max-width: 600px) {
+
     .flui-site {
       padding: 25px 12px;
     }
@@ -124,45 +190,29 @@
     .flui-about {
       padding: 22px;
     }
-  } 
-  .flu-mascote {
-  text-align: center;
-  margin: 20px auto 10px;
-  animation: fluFloat 3s ease-in-out infinite;
-}
 
-.flu-mascote img {
-  width: 150px;
-  max-width: 45vw;
-  height: auto;
-  display: inline-block;
-  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
-}
+    .banner-flui {
+      width: 100%;
+      margin: 20px auto 25px;
+      border-radius: 16px;
+    }
 
-@keyframes fluFloat {
-  0%, 100% {
-    transform: translateY(0);
+    .flu-mascote img {
+      width: 120px;
+    }
+
+    .flu-mascote {
+      margin-top: 15px;
+    }
   }
-
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@media (max-width: 600px) {
-  .flu-mascote img {
-    width: 120px;
-  }
-
-  .flu-mascote {
-    margin-top: 15px;
-  }
-}
 </style>
+
 
 <div class="flui-site">
 
   <div class="flui-container">
+
+    <!-- CABEÇALHO -->
 
     <header class="flui-top">
 
@@ -182,14 +232,23 @@
       </p>
 
     </header>
-    <div class="flu-mascote">
+
+
+    <!-- BANNER PRINCIPAL -->
+
+    <div class="banner-flui">
+
       <img
-        src="https://res.cloudinary.com/lfojj52z/image/upload/v1789332453/Flu_Legal.png"
-        alt="Flu - mascote da Rádio Flui"
+        src="https://res.cloudinary.com/lfojj52z/image/upload/v1789413194/Banner_site.png"
+        alt="Rádio Flui - Você sente. Você ouve. Você Flui!"
       >
+
     </div>
 
-  </div>
+
+    <!-- O PLAYER E O RESTANTE DO SITE CONTINUAM ABAIXO -->
+```
+
 
 </div>
 <!-- ============================= -->
