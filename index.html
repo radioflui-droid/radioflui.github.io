@@ -873,74 +873,6 @@
 </script>
 
 <!-- ========================================= -->
-<!-- INSTAGRAM RÁDIO FLUI -->
-<!-- ========================================= -->
-
-<div class="flui-instagram">
-
-  <a
-    href="https://www.instagram.com/radioflui/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Siga a Rádio Flui no Instagram"
-  >
-
-    <span class="instagram-icon">
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <rect
-          x="3"
-          y="3"
-          width="18"
-          height="18"
-          rx="5"
-          ry="5"
-        />
-
-        <circle
-          cx="12"
-          cy="12"
-          r="4.2"
-        />
-
-        <circle
-          cx="17.5"
-          cy="6.5"
-          r="1.2"
-          class="instagram-dot"
-        />
-
-      </svg>
-
-    </span>
-
-    <span class="instagram-text">
-
-      <small>
-        SIGA A RÁDIO FLUI
-      </small>
-
-      <strong>
-        @radioflui
-      </strong>
-
-    </span>
-
-    <span class="instagram-arrow">
-      →
-    </span>
-
-  </a>
-
-</div>
-
-
-<style>
-
-<!-- ========================================= -->
 <!-- REDES SOCIAIS - RÁDIO FLUI -->
 <!-- ========================================= -->
 
@@ -956,7 +888,7 @@
     aria-label="Siga a Rádio Flui no Instagram"
   >
 
-    <span class="social-icon">
+    <span class="social-icon instagram-icon">
 
       <svg viewBox="0 0 24 24" aria-hidden="true">
 
@@ -966,7 +898,6 @@
           width="18"
           height="18"
           rx="5"
-          ry="5"
         />
 
         <circle
@@ -988,19 +919,13 @@
 
     <span class="social-text">
 
-      <small>
-        SIGA A RÁDIO FLUI
-      </small>
+      <small>INSTAGRAM</small>
 
-      <strong>
-        @radioflui
-      </strong>
+      <strong>@radioflui</strong>
 
     </span>
 
-    <span class="social-arrow">
-      →
-    </span>
+    <span class="social-arrow">→</span>
 
   </a>
 
@@ -1029,19 +954,13 @@
 
     <span class="social-text">
 
-      <small>
-        SIGA A RÁDIO FLUI
-      </small>
+      <small>TIKTOK</small>
 
-      <strong>
-        @radioflui
-      </strong>
+      <strong>@radioflui</strong>
 
     </span>
 
-    <span class="social-arrow">
-      →
-    </span>
+    <span class="social-arrow">→</span>
 
   </a>
 
@@ -1063,33 +982,32 @@
 
   display: flex;
   justify-content: center;
-  align-items: stretch;
 
   gap: 14px;
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
 
 /* ========================================= */
-/* BOTÃO BASE */
+/* BOTÃO */
 /* ========================================= */
 
 .flui-social-button {
 
   position: relative;
 
-  display: flex;
-  align-items: center;
-
   width: 290px;
 
-  padding: 11px 18px;
+  min-height: 68px;
+
+  padding: 10px 16px;
 
   box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
 
   border-radius: 18px;
 
@@ -1099,15 +1017,10 @@
 
   overflow: hidden;
 
-  border:
-    1px solid rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.15);
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,.22),
-    inset 0 0 20px rgba(255,255,255,.025);
-
-  backdrop-filter:
-    blur(10px);
+    0 10px 30px rgba(0,0,0,.25);
 
   transition:
     transform .25s ease,
@@ -1117,9 +1030,7 @@
 }
 
 
-/* ========================================= */
-/* BRILHO ANIMADO */
-/* ========================================= */
+/* BRILHO */
 
 .flui-social-button::before {
 
@@ -1129,8 +1040,6 @@
 
   inset: 0;
 
-  border-radius: inherit;
-
   background:
     linear-gradient(
       110deg,
@@ -1139,11 +1048,9 @@
       transparent 80%
     );
 
-  transform:
-    translateX(-120%);
+  transform: translateX(-120%);
 
-  transition:
-    transform .6s ease;
+  transition: transform .6s ease;
 
   pointer-events: none;
 
@@ -1152,20 +1059,16 @@
 
 .flui-social-button:hover::before {
 
-  transform:
-    translateX(120%);
+  transform: translateX(120%);
 
 }
 
 
-/* ========================================= */
 /* HOVER */
-/* ========================================= */
 
 .flui-social-button:hover {
 
-  transform:
-    translateY(-3px);
+  transform: translateY(-3px);
 
 }
 
@@ -1179,9 +1082,9 @@
   background:
     linear-gradient(
       135deg,
-      rgba(131,58,180,.28),
-      rgba(253,29,29,.18),
-      rgba(252,176,69,.18)
+      rgba(131,58,180,.38),
+      rgba(253,29,29,.22),
+      rgba(252,176,69,.20)
     );
 
 }
@@ -1190,11 +1093,11 @@
 .instagram-button:hover {
 
   border-color:
-    rgba(252,176,69,.45);
+    rgba(252,176,69,.55);
 
   box-shadow:
-    0 14px 35px rgba(0,0,0,.30),
-    0 0 25px rgba(225,48,108,.18);
+    0 15px 35px rgba(0,0,0,.30),
+    0 0 28px rgba(225,48,108,.20);
 
 }
 
@@ -1208,9 +1111,9 @@
   background:
     linear-gradient(
       135deg,
-      rgba(37,244,238,.13),
-      rgba(0,0,0,.25),
-      rgba(254,44,85,.13)
+      rgba(37,244,238,.16),
+      rgba(0,0,0,.35),
+      rgba(254,44,85,.18)
     );
 
 }
@@ -1219,31 +1122,38 @@
 .tiktok-button:hover {
 
   border-color:
-    rgba(37,244,238,.40);
+    rgba(37,244,238,.50);
 
   box-shadow:
-    0 14px 35px rgba(0,0,0,.30),
-    0 0 25px rgba(37,244,238,.14);
+    0 15px 35px rgba(0,0,0,.30),
+    0 0 28px rgba(37,244,238,.16);
 
 }
 
 
 /* ========================================= */
-/* ÍCONE */
+/* ÍCONES */
 /* ========================================= */
 
 .social-icon {
 
-  width: 43px;
-  height: 43px;
+  width: 44px;
+  height: 44px;
 
-  flex: 0 0 43px;
+  flex: 0 0 44px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   border-radius: 13px;
+
+}
+
+
+/* INSTAGRAM */
+
+.instagram-icon {
 
   background:
     linear-gradient(
@@ -1254,15 +1164,15 @@
     );
 
   box-shadow:
-    0 5px 18px rgba(131,58,180,.30);
+    0 5px 18px rgba(131,58,180,.35);
 
 }
 
 
-.social-icon svg {
+.instagram-icon svg {
 
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
 
   fill: none;
 
@@ -1273,18 +1183,7 @@
 }
 
 
-.social-icon .social-dot {
-
-  fill: white;
-
-  stroke: none;
-
-}
-
-
-/* ========================================= */
-/* ÍCONE TIKTOK */
-/* ========================================= */
+/* TIKTOK */
 
 .tiktok-icon {
 
@@ -1296,10 +1195,25 @@
       #fe2c55
     );
 
+  box-shadow:
+    0 5px 18px rgba(37,244,238,.18);
+
 }
 
 
 .tiktok-icon svg {
+
+  width: 25px;
+  height: 25px;
+
+  fill: white;
+
+}
+
+
+/* PONTO DO INSTAGRAM */
+
+.social-dot {
 
   fill: white;
 
@@ -1318,8 +1232,6 @@
 
   flex-direction: column;
 
-  align-items: flex-start;
-
   margin-left: 13px;
 
   line-height: 1.15;
@@ -1335,15 +1247,14 @@
 
   letter-spacing: 1.5px;
 
-  color:
-    #94a3b8;
+  color: #94a3b8;
 
 }
 
 
 .social-text strong {
 
-  margin-top: 3px;
+  margin-top: 4px;
 
   font-size: 15px;
 
@@ -1366,10 +1277,7 @@
 
   font-size: 22px;
 
-  font-weight: 300;
-
-  color:
-    #c4b5fd;
+  color: #c4b5fd;
 
   transition:
     transform .25s ease;
@@ -1377,11 +1285,9 @@
 }
 
 
-.flui-social-button:hover
-.social-arrow {
+.flui-social-button:hover .social-arrow {
 
-  transform:
-    translateX(4px);
+  transform: translateX(5px);
 
 }
 
