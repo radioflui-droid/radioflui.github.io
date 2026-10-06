@@ -1,753 +1,883 @@
-<!-- RÁDIO FLUI - NOVA PÁGINA -->
+```html
+<!-- RÁDIO FLUI — PÁGINA COMPLETA -->
 
 <style>
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    background:
-      radial-gradient(circle at 20% 10%, rgba(139, 92, 246, 0.35), transparent 30%),
-      radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.25), transparent 30%),
-      linear-gradient(135deg, #080b18, #17113b, #090d20);
-    color: white;
+/* ================================
+   BASE
+================================ */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(139,92,246,.35), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(56,189,248,.25), transparent 30%),
+    linear-gradient(135deg,#080b18,#17113b,#090d20);
+  color: #fff;
+}
+
+.flui-site {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.flui-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ================================
+   BANNER
+================================ */
+.banner-flui {
+  width: 100%;
+  margin: 0 auto 30px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.40),
+    0 0 35px rgba(139,92,246,.18);
+}
+
+.banner-flui img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ================================
+   PLAYER
+================================ */
+#radio-flui-player {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 22px 25px;
+  box-sizing: border-box;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right,rgba(139,92,246,.28),transparent 40%),
+    linear-gradient(145deg,#0f172a,#172554);
+  border: 1px solid rgba(103,232,249,.25);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.35),
+    inset 0 0 30px rgba(56,189,248,.05);
+  color: #fff;
+}
+
+.flui-main-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.flui-logo {
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg,#38bdf8,#8b5cf6);
+  box-shadow: 0 0 25px rgba(139,92,246,.35);
+}
+
+.flui-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #0f172a;
+}
+
+.flui-brand {
+  flex: 0 0 145px;
+  text-align: left;
+}
+
+.flui-name {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.flui-live {
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #67e8f9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flui-live-dot {
+  width: 7px;
+  height: 7px;
+  background: #67e8f9;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #67e8f9;
+  animation: flui-pulse 1.5s infinite;
+}
+
+.flui-now {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 18px;
+  border-radius: 17px;
+  background: rgba(15,23,42,.65);
+  border: 1px solid rgba(103,232,249,.12);
+  text-align: left;
+}
+
+.flui-now-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #67e8f9;
+  margin-bottom: 5px;
+}
+
+.flui-artist {
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flui-title {
+  margin-top: 3px;
+  font-size: 13px;
+  color: #c4b5fd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flui-waves {
+  width: 100%;
+  height: 45px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.flui-waves span {
+  width: 4px;
+  height: 15px;
+  border-radius: 5px;
+  background: linear-gradient(to top,#38bdf8,#8b5cf6);
+  animation: flui-wave 1s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.flui-waves span:nth-child(2){animation-delay:.1s}
+.flui-waves span:nth-child(3){animation-delay:.2s}
+.flui-waves span:nth-child(4){animation-delay:.3s}
+.flui-waves span:nth-child(5){animation-delay:.4s}
+.flui-waves span:nth-child(6){animation-delay:.5s}
+.flui-waves span:nth-child(7){animation-delay:.6s}
+.flui-waves span:nth-child(8){animation-delay:.5s}
+.flui-waves span:nth-child(9){animation-delay:.4s}
+.flui-waves span:nth-child(10){animation-delay:.3s}
+.flui-waves span:nth-child(11){animation-delay:.2s}
+.flui-waves span:nth-child(12){animation-delay:.1s}
+
+.flui-playing span {
+  animation-play-state: running;
+}
+
+.flui-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.flui-button {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 19px;
+  color: #fff;
+  background: linear-gradient(135deg,#38bdf8,#8b5cf6);
+  box-shadow: 0 8px 20px rgba(56,189,248,.25);
+}
+
+.flui-volume {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#flui-volume {
+  width: 100%;
+  accent-color: #8b5cf6;
+}
+
+.flui-slogan {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #94a3b8;
+}
+
+#flui-metadata {
+  display: none !important;
+}
+
+@keyframes flui-wave {
+  0%,100% { height: 12px; }
+  50% { height: 42px; }
+}
+
+@keyframes flui-pulse {
+  0%,100% {
+    opacity: .4;
+    transform: scale(.8);
   }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ================================
+   VITRINE MERCADO LIVRE
+================================ */
+.flui-ofertas {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 28px 20px 22px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(139,92,246,.18),transparent 34%),
+    radial-gradient(circle at 90% 85%,rgba(56,189,248,.12),transparent 35%),
+    linear-gradient(145deg,#0f172a,#172554);
+  border: 1px solid rgba(103,232,249,.20);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.28),
+    inset 0 0 28px rgba(139,92,246,.04);
+  color: #fff;
+}
+
+.flui-ofertas-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.flui-ofertas-kicker {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #67e8f9;
+}
+
+.flui-ofertas-header h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.flui-ofertas-header p {
+  margin: 7px 0 0;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* PRODUTOS */
+.flui-produtos {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 14px;
+}
+
+.flui-produto {
+  display: block;
+  min-width: 0;
+  min-height: 145px;
+  padding: 18px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  text-decoration: none !important;
+  color: #fff !important;
+  background: rgba(15,23,42,.82);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.flui-produto:hover {
+  transform: translateY(-4px);
+  border-color: rgba(103,232,249,.50);
+}
+
+.flui-produto-icone {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: linear-gradient(
+    135deg,
+    rgba(56,189,248,.18),
+    rgba(139,92,246,.22)
+  );
+  border: 1px solid rgba(103,232,249,.12);
+  font-size: 23px;
+}
+
+.flui-produto-categoria {
+  display: block;
+  margin-top: 12px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #67e8f9;
+}
+
+.flui-produto h3 {
+  margin: 4px 0 12px;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #fff;
+}
+
+.flui-produto-cta {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #c4b5fd;
+}
+
+/* ================================
+   REDES SOCIAIS
+================================ */
+.flui-social {
+  width: 100%;
+  max-width: 900px;
+  margin: 18px auto 35px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.flui-social-button {
+  width: 290px;
+  min-height: 68px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.instagram-button {
+  background: linear-gradient(
+    135deg,
+    rgba(131,58,180,.38),
+    rgba(253,29,29,.22),
+    rgba(252,176,69,.20)
+  );
+}
+
+.tiktok-button {
+  background: linear-gradient(
+    135deg,
+    rgba(37,244,238,.16),
+    rgba(0,0,0,.35),
+    rgba(254,44,85,.18)
+  );
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  font-size: 22px;
+}
+
+.social-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 13px;
+  line-height: 1.15;
+}
+
+.social-text small {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+}
+
+.social-text strong {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.social-arrow {
+  margin-left: auto;
+  font-size: 22px;
+  color: #c4b5fd;
+}
+
+/* ================================
+   MOBILE
+================================ */
+@media (max-width:700px) {
 
   .flui-site {
-    min-height: auto;
-    padding: 40px 20px;
-    box-sizing: border-box;
+    padding: 25px 12px;
   }
-
-  .flui-container {
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
-  }
-
-  /* =========================================
-     BANNER PRINCIPAL
-     ========================================= */
-
-  .banner-flui {
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.40),
-      0 0 35px rgba(139, 92, 246, 0.18);
-  }
-
-  .banner-flui img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* =========================================
-     PLAYER RÁDIO FLUI 
-     ========================================= */
 
   #radio-flui-player {
-    width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 22px 25px;
-    box-sizing: border-box;
-
-    border-radius: 26px;
-
-    background:
-      radial-gradient(
-        circle at top right,
-        rgba(139,92,246,.28),
-        transparent 40%
-      ),
-      linear-gradient(
-        145deg,
-        #0f172a,
-        #172554
-      );
-
-    border: 1px solid rgba(103,232,249,.25);
-
-    box-shadow:
-      0 20px 50px rgba(0,0,0,.35),
-      inset 0 0 30px rgba(56,189,248,.05);
-
-    color: white;
-
-    font-family:
-      Arial,
-      Helvetica,
-      sans-serif;
+    padding: 20px 17px;
+    border-radius: 22px;
   }
-
-  /* =========================================
-     ÁREA SUPERIOR HORIZONTAL
-     ========================================= */
 
   .flui-main-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-
-  /* LOGO */
 
   .flui-logo {
-    width: 62px;
-    height: 62px;
-    flex: 0 0 62px;
-
-    border-radius: 50%;
-    padding: 5px;
-
-    box-sizing: border-box;
-
-    background:
-      linear-gradient(
-        135deg,
-        #38bdf8,
-        #8b5cf6
-      );
-
-    box-shadow:
-      0 0 25px rgba(139,92,246,.35);
+    width: 55px;
+    height: 55px;
+    flex-basis: 55px;
   }
-
-  .flui-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-    background: #0f172a;
-  }
-
-  /* NOME DA RÁDIO */
 
   .flui-brand {
-    flex: 0 0 145px;
-    text-align: left;
+    flex: 1;
   }
 
   .flui-name {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-size: 19px;
   }
-
-  .flui-live {
-    margin-top: 5px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #67e8f9;
-
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .flui-live-dot {
-    width: 7px;
-    height: 7px;
-
-    background: #67e8f9;
-    border-radius: 50%;
-
-    box-shadow:
-      0 0 10px #67e8f9;
-
-    animation: flui-pulse 1.5s infinite;
-  }
-
-  /* =========================================
-     AGORA TOCANDO
-     ========================================= */
 
   .flui-now {
-    flex: 1;
-    min-width: 0;
-
-    padding: 13px 18px;
-
-    border-radius: 17px;
-
-    background:
-      rgba(15,23,42,.65);
-
-    border:
-      1px solid rgba(103,232,249,.12);
-
-    text-align: left;
-  }
-
-  .flui-now-label {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #67e8f9;
-    margin-bottom: 5px;
-  }
-
-  .flui-artist {
-    font-size: 17px;
-    font-weight: 700;
-    color: white;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .flui-title {
-    margin-top: 3px;
-    font-size: 13px;
-    color: #c4b5fd;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* =========================================
-     ONDAS
-     ========================================= */
-
-  .flui-waves {
     width: 100%;
-    height: 45px;
-
-    margin: 12px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 4px;
+    flex-basis: 100%;
+    box-sizing: border-box;
   }
 
-  .flui-waves span {
-    width: 4px;
-    height: 15px;
-
-    border-radius: 5px;
-
-    background:
-      linear-gradient(
-        to top,
-        #38bdf8,
-        #8b5cf6
-      );
-
-    animation:
-      flui-wave 1s ease-in-out infinite;
-
-    animation-play-state: paused;
+  .flui-ofertas {
+    margin: 25px auto;
+    padding: 24px 13px 19px;
+    border-radius: 21px;
   }
 
-  .flui-waves span:nth-child(2) { animation-delay: .1s; }
-  .flui-waves span:nth-child(3) { animation-delay: .2s; }
-  .flui-waves span:nth-child(4) { animation-delay: .3s; }
-  .flui-waves span:nth-child(5) { animation-delay: .4s; }
-  .flui-waves span:nth-child(6) { animation-delay: .5s; }
-  .flui-waves span:nth-child(7) { animation-delay: .6s; }
-  .flui-waves span:nth-child(8) { animation-delay: .5s; }
-  .flui-waves span:nth-child(9) { animation-delay: .4s; }
-  .flui-waves span:nth-child(10) { animation-delay: .3s; }
-  .flui-waves span:nth-child(11) { animation-delay: .2s; }
-  .flui-waves span:nth-child(12) { animation-delay: .1s; }
-
-  .flui-playing span {
-    animation-play-state: running;
+  .flui-ofertas-header h2 {
+    font-size: 21px;
   }
 
-  /* =========================================
-     CONTROLES
-     ========================================= */
-
-  .flui-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .flui-button {
-    width: 52px;
-    height: 52px;
-
-    flex: 0 0 52px;
-
-    border: none;
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    font-size: 19px;
-    color: white;
-
-    background:
-      linear-gradient(
-        135deg,
-        #38bdf8,
-        #8b5cf6
-      );
-
-    box-shadow:
-      0 8px 20px rgba(56,189,248,.25);
-
-    transition:
-      transform .2s ease,
-      box-shadow .2s ease;
-  }
-
-  .flui-button:hover {
-    transform: scale(1.06);
-
-    box-shadow:
-      0 10px 28px rgba(139,92,246,.4);
-  }
-
-  .flui-volume {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-
+  .flui-produtos {
+    grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  .flui-volume-icon {
-    font-size: 16px;
+  .flui-produto {
+    min-height: 120px;
   }
 
-  #flui-volume {
+  .flui-social {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .flui-social-button {
     width: 100%;
-    accent-color: #8b5cf6;
+    max-width: 340px;
   }
-
-  /* =========================================
-     SLOGAN
-     ========================================= */
-
-  .flui-slogan {
-    margin-top: 15px;
-
-    text-align: center;
-
-    font-size: 11px;
-    letter-spacing: 1px;
-
-    color: #94a3b8;
-  }
-
-  /* =========================================
-     ANIMAÇÕES
-     ========================================= */
-
-  @keyframes flui-wave {
-
-    0%,100% {
-      height: 12px;
-    }
-
-    50% {
-      height: 42px;
-    }
-
-  }
-
-  @keyframes flui-pulse {
-
-    0%,100% {
-      opacity: .4;
-      transform: scale(.8);
-    }
-
-    50% {
-      opacity: 1;
-      transform: scale(1.2);
-    }
-
-  }
-
-  /* ESCONDE O METADATA ORIGINAL */
-
-  #flui-metadata {
-    display: none !important;
-  }
-
-  /* =========================================
-     CELULAR
-     ========================================= */
-
-  @media (max-width: 700px) {
-
-    .flui-site {
-      padding: 25px 12px;
-    }
-
-    #radio-flui-player {
-      padding: 20px 17px;
-      border-radius: 22px;
-    }
-
-    .flui-main-row {
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .flui-logo {
-      width: 55px;
-      height: 55px;
-      flex-basis: 55px;
-    }
-
-    .flui-brand {
-      flex: 1;
-    }
-
-    .flui-name {
-      font-size: 19px;
-    }
-
-    .flui-now {
-      width: 100%;
-      flex-basis: 100%;
-      box-sizing: border-box;
-    }
-
-    .flui-waves {
-      height: 38px;
-    }
-
-    .flui-slogan {
-      font-size: 10px;
-    }
-
-  }
-
+}
 </style>
 
 
-<!-- ========================================= -->
-<!-- BANNER -->
-<!-- ========================================= -->
-
+<!-- ================================
+     BANNER
+================================ -->
 <div class="flui-site">
 
   <div class="flui-container">
 
     <div class="banner-flui">
-
       <img
         src="https://res.cloudinary.com/lfojj52z/image/upload/f_auto/q_auto/Banner_site_Flu_e_Flu%C3%AD.png"
         alt="Rádio Flui - Você sente. Você ouve. Você Flui!"
       >
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ========================================= -->
-<!-- RÁDIO FLUI - PLAYER -->
-<!-- ========================================= -->
-
-<div id="radio-flui-player">
-
-  <!-- Metadata oficial FastCast4u - invisível -->
-
-  <span
-    id="flui-metadata"
-    class="cc_streaminfo"
-    data-type="song"
-    data-username="radioflui"
-  >Carregando ...</span>
-
-
-  <!-- LINHA PRINCIPAL -->
-
-  <div class="flui-main-row">
-
-    <!-- LOGO -->
-
-    <div class="flui-logo">
-
-      <img
-        src="https://res.cloudinary.com/lfojj52z/image/upload/v1789082671/Logo_S%C3%ADmbolo_Oficial_Quadrada_Roxo.png"
-        alt="Rádio Flui"
-      >
-
     </div>
 
 
-    <!-- RÁDIO FLUI -->
+    <!-- ================================
+         PLAYER
+    ================================= -->
+    <div id="radio-flui-player">
 
-    <div class="flui-brand">
+      <span
+        id="flui-metadata"
+        class="cc_streaminfo"
+        data-type="song"
+        data-username="radioflui"
+      >Carregando...</span>
 
-      <div class="flui-name">
-        RÁDIO FLUI
+      <div class="flui-main-row">
+
+        <div class="flui-logo">
+          <img
+            src="https://res.cloudinary.com/lfojj52z/image/upload/v1789082671/Logo_S%C3%ADmbolo_Oficial_Quadrada_Roxo.png"
+            alt="Rádio Flui"
+          >
+        </div>
+
+        <div class="flui-brand">
+          <div class="flui-name">RÁDIO FLUI</div>
+
+          <div class="flui-live">
+            <span class="flui-live-dot"></span>
+            AO VIVO
+          </div>
+        </div>
+
+        <div class="flui-now">
+
+          <div class="flui-now-label">
+            AGORA TOCANDO
+          </div>
+
+          <div id="flui-artist" class="flui-artist">
+            Rádio Flui
+          </div>
+
+          <div id="flui-title" class="flui-title">
+            Carregando música...
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="flui-live">
 
-        <span class="flui-live-dot"></span>
+      <div class="flui-waves" id="flui-waves">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
 
-        AO VIVO
 
+      <div class="flui-controls">
+
+        <button
+          id="flui-play"
+          class="flui-button"
+          type="button"
+          aria-label="Reproduzir"
+        >▶</button>
+
+        <div class="flui-volume">
+          <span>🔊</span>
+
+          <input
+            id="flui-volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.8"
+          >
+        </div>
+
+      </div>
+
+
+      <div class="flui-slogan">
+        Você sente. Você ouve. Você Flui.
       </div>
 
     </div>
 
 
-    <!-- AGORA TOCANDO -->
-
-    <div class="flui-now">
-
-      <div class="flui-now-label">
-        AGORA TOCANDO
-      </div>
-
-      <div
-        id="flui-artist"
-        class="flui-artist"
-      >
-        Rádio Flui
-      </div>
-
-      <div
-        id="flui-title"
-        class="flui-title"
-      >
-        Carregando música...
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- ONDAS -->
-
-  <div
-    class="flui-waves"
-    id="flui-waves"
-  >
-
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </div>
-
-
-  <!-- CONTROLES -->
-
-  <div class="flui-controls">
-
-    <button
-      id="flui-play"
-      class="flui-button"
-      aria-label="Reproduzir"
+    <!-- ================================
+         ÁUDIO
+    ================================= -->
+    <audio
+      id="flui-audio"
+      preload="none"
+      crossorigin="anonymous"
     >
-      ▶
-    </button>
-
-
-    <div class="flui-volume">
-
-      <span class="flui-volume-icon">
-        🔊
-      </span>
-
-      <input
-        id="flui-volume"
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value="0.8"
+      <source
+        src="https://eu8.fastcast4u.com/proxy/radioflui?mp=/stream"
+        type="audio/mpeg"
       >
+    </audio>
+
+
+    <!-- ================================
+         VITRINE MERCADO LIVRE
+    ================================= -->
+    <section class="flui-ofertas">
+
+      <div class="flui-ofertas-header">
+
+        <span class="flui-ofertas-kicker">
+          OFERTAS SELECIONADAS
+        </span>
+
+        <h2>
+          🛒 Achadinhos da Rádio Flui
+        </h2>
+
+        <p>
+          Produtos selecionados para você no Mercado Livre.
+        </p>
+
+      </div>
+
+
+      <div class="flui-produtos">
+
+        <a
+          class="flui-produto"
+          href="https://www.mercadolivre.com.br/chaleira-eletrica-inox-jarra-18-litros-prateado/up/MLBU3920036187?pdp_filters=item_id%3AMLB6676342192"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="flui-produto-icone">
+            🫖
+          </div>
+
+          <span class="flui-produto-categoria">
+            CASA
+          </span>
+
+          <h3>
+            Chaleira Elétrica Inox 1,8 L
+          </h3>
+
+          <span class="flui-produto-cta">
+            Ver oferta →
+          </span>
+
+        </a>
+
+
+        <a
+          class="flui-produto"
+          href="https://www.mercadolivre.com.br/suporte-celular-magnetico-com-duplo-anel-fidget-spinner-mult/up/MLBU5322216498?pdp_filters=item_id%3AMLB7709674866"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="flui-produto-icone">
+            📱
+          </div>
+
+          <span class="flui-produto-categoria">
+            CELULAR
+          </span>
+
+          <h3>
+            Suporte Magnético para Celular
+          </h3>
+
+          <span class="flui-produto-cta">
+            Ver oferta →
+          </span>
+
+        </a>
+
+
+        <a
+          class="flui-produto"
+          href="https://produto.mercadolivre.com.br/MLB-4722109147-relogio-de-pulso-esfera-magnetica-pulseira-em-silicone-preto-preto-_JM"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="flui-produto-icone">
+            ⌚
+          </div>
+
+          <span class="flui-produto-categoria">
+            ACESSÓRIOS
+          </span>
+
+          <h3>
+            Relógio de Pulso Esfera Magnética
+          </h3>
+
+          <span class="flui-produto-cta">
+            Ver oferta →
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <div class="flui-ofertas-rodape">
+        🛍️ Ao clicar, você será direcionado ao Mercado Livre.
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+         REDES SOCIAIS
+    ================================= -->
+    <div class="flui-social">
+
+      <a
+        class="flui-social-button instagram-button"
+        href="https://www.instagram.com/radioflui/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="social-icon">
+          ◎
+        </span>
+
+        <span class="social-text">
+          <small>INSTAGRAM</small>
+          <strong>@radioflui</strong>
+        </span>
+
+        <span class="social-arrow">→</span>
+
+      </a>
+
+
+      <a
+        class="flui-social-button tiktok-button"
+        href="https://www.tiktok.com/@radioflui"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="social-icon">
+          ♪
+        </span>
+
+        <span class="social-text">
+          <small>TIKTOK</small>
+          <strong>@radioflui</strong>
+        </span>
+
+        <span class="social-arrow">→</span>
+
+      </a>
 
     </div>
 
   </div>
 
-
-  <!-- SLOGAN -->
-
-  <div class="flui-slogan">
-    Você sente. Você ouve. Você Flui.
-  </div>
-
 </div>
 
 
-<!-- ========================================= -->
-<!-- ÁUDIO -->
-<!-- ========================================= -->
-
-<audio
-  id="flui-audio"
-  preload="none"
-  crossorigin="anonymous"
->
-
-  <source
-    src="https://eu8.fastcast4u.com/proxy/radioflui?mp=/stream"
-    type="audio/mpeg"
-  >
-
-</audio>
-
-
-<!-- ========================================= -->
-<!-- SCRIPT OFICIAL FASTCAST4U -->
-<!-- ========================================= -->
-
+<!-- ================================
+     FASTCAST4U
+================================ -->
 <script
   type="text/javascript"
   src="https://eu8.fastcast4u.com/system/streaminfo.js">
 </script>
 
 
-<!-- ========================================= -->
-<!-- JAVASCRIPT DO PLAYER -->
-<!-- ========================================= -->
-
+<!-- ================================
+     JAVASCRIPT DO PLAYER
+================================ -->
 <script>
-
 (function() {
 
-  const audio =
-    document.getElementById("flui-audio");
+  var audio = document.getElementById("flui-audio");
+  var playButton = document.getElementById("flui-play");
+  var volume = document.getElementById("flui-volume");
+  var waves = document.getElementById("flui-waves");
+  var artist = document.getElementById("flui-artist");
+  var title = document.getElementById("flui-title");
+  var metadata = document.getElementById("flui-metadata");
 
-  const playButton =
-    document.getElementById("flui-play");
-
-  const volume =
-    document.getElementById("flui-volume");
-
-  const waves =
-    document.getElementById("flui-waves");
-
-  const artist =
-    document.getElementById("flui-artist");
-
-  const title =
-    document.getElementById("flui-title");
-
-  const metadata =
-    document.getElementById("flui-metadata");
-
-
-  /* VOLUME INICIAL */
+  if (!audio || !playButton) return;
 
   audio.volume = 0.8;
 
+  playButton.addEventListener("click", function() {
 
-  /* PLAY / PAUSE */
+    if (audio.paused) {
 
-  playButton.addEventListener(
-    "click",
-    function() {
+      audio.play()
+        .then(function() {
 
-      if (audio.paused) {
+          playButton.innerHTML = "❚❚";
+          waves.classList.add("flui-playing");
 
-        audio.play()
-          .then(function() {
+        })
+        .catch(function(error) {
 
-            playButton.innerHTML = "❚❚";
+          console.log("Erro ao reproduzir:", error);
 
-            waves.classList.add(
-              "flui-playing"
-            );
+        });
 
-          })
-          .catch(function(error) {
+    } else {
 
-            console.log(
-              "Erro ao reproduzir:",
-              error
-            );
-
-          });
-
-      } else {
-
-        audio.pause();
-
-        playButton.innerHTML = "▶";
-
-        waves.classList.remove(
-          "flui-playing"
-        );
-
-      }
+      audio.pause();
 
     }
-  );
+
+  });
 
 
-  /* VOLUME */
+  volume.addEventListener("input", function() {
 
-  volume.addEventListener(
-    "input",
-    function() {
+    audio.volume = parseFloat(this.value);
 
-      audio.volume =
-        parseFloat(this.value);
-
-    }
-  );
+  });
 
 
-  /* STATUS DO PLAYER */
+  audio.addEventListener("play", function() {
 
-  audio.addEventListener(
-    "play",
-    function() {
+    playButton.innerHTML = "❚❚";
+    waves.classList.add("flui-playing");
 
-      playButton.innerHTML = "❚❚";
-
-      waves.classList.add(
-        "flui-playing"
-      );
-
-    }
-  );
+  });
 
 
-  audio.addEventListener(
-    "pause",
-    function() {
+  audio.addEventListener("pause", function() {
 
-      playButton.innerHTML = "▶";
+    playButton.innerHTML = "▶";
+    waves.classList.remove("flui-playing");
 
-      waves.classList.remove(
-        "flui-playing"
-      );
+  });
 
-    }
-  );
-
-
-  /* REMOVE O CÓDIGO DE RASTREAMENTO */
 
   function limparCodigo(texto) {
 
@@ -758,686 +888,69 @@
   }
 
 
-  /* ATUALIZA O TEXTO DO PLAYER */
-
   function atualizarMusica() {
 
     if (!metadata) return;
 
-    let musica =
-      metadata.textContent.trim();
-
+    var musica = metadata.textContent.trim();
 
     if (
       !musica ||
-      musica === "Carregando ..." ||
-      musica === "Carregando..."
+      musica === "Carregando..." ||
+      musica === "Carregando ..."
     ) {
-
       return;
-
     }
 
+    musica = limparCodigo(musica);
 
-    musica =
-      limparCodigo(musica);
-
-
-    /*
-     * Se o servidor mandar:
-     *
-     * Artista - Música
-     *
-     * separa automaticamente.
-     */
-
-    const separador =
-      musica.indexOf(" - ");
-
+    var separador = musica.indexOf(" - ");
 
     if (separador !== -1) {
 
-      const nomeArtista =
-        musica.substring(
-          0,
-          separador
-        ).trim();
+      var nomeArtista =
+        musica.substring(0, separador).trim();
 
-
-      const nomeMusica =
-        musica.substring(
-          separador + 3
-        ).trim();
-
+      var nomeMusica =
+        musica.substring(separador + 3).trim();
 
       artist.textContent =
         nomeArtista || "Rádio Flui";
-
 
       title.textContent =
         nomeMusica || musica;
 
     } else {
 
-      artist.textContent =
-        "Rádio Flui";
-
-      title.textContent =
-        musica;
+      artist.textContent = "Rádio Flui";
+      title.textContent = musica;
 
     }
 
   }
 
 
-  /* OBSERVA O WIDGET OFICIAL */
+  if (window.MutationObserver && metadata) {
 
-  const observer =
-    new MutationObserver(
-      function() {
+    var observer = new MutationObserver(function() {
 
-        atualizarMusica();
+      atualizarMusica();
 
-      }
-    );
+    });
 
-
-  observer.observe(
-    metadata,
-    {
+    observer.observe(metadata, {
       childList: true,
       characterData: true,
       subtree: true
-    }
-  );
+    });
+
+  }
 
 
-  /* VERIFICAÇÃO DE SEGURANÇA */
+  setInterval(atualizarMusica, 3000);
 
-  setInterval(
-    atualizarMusica,
-    3000
-  );
-
-
-  /* PRIMEIRA LEITURA */
-
-  setTimeout(
-    atualizarMusica,
-    2000
-  );
-
+  setTimeout(atualizarMusica, 2000);
 
 })();
-
 </script>
-
-
-<!-- ========================================= -->
-<!-- OFERTAS DA RÁDIO FLUI - AFILIADOS -->
-<!-- ========================================= -->
-
-<section class="flui-ofertas" aria-labelledby="flui-ofertas-titulo">
-  <div class="flui-ofertas-header">
-    <span class="flui-ofertas-kicker">OFERTAS SELECIONADAS</span>
-    <h2 id="flui-ofertas-titulo">🛒 Achadinhos da Rádio Flui</h2>
-    <p>Produtos selecionados para você no Mercado Livre.</p>
-  </div>
-
-  <div class="flui-produtos">
-
-    <a class="flui-produto"
-       href="https://www.mercadolivre.com.br/chaleira-eletrica-inox-jarra-18-litros-prateado/up/MLBU3920036187?pdp_filters=item_id%3AMLB6676342192&sid=bookmarks#polycard_client=wishlist&wid=MLB6676342192&sid=bookmarks"
-       target="_blank" rel="noopener noreferrer sponsored"
-       aria-label="Ver Chaleira Elétrica Inox 1,8 Litros no Mercado Livre">
-      <div class="flui-produto-icone">🫖</div>
-      <div class="flui-produto-conteudo">
-        <span class="flui-produto-categoria">CASA</span>
-        <h3>Chaleira Elétrica Inox 1,8 L</h3>
-        <span class="flui-produto-cta">Ver oferta <b>→</b></span>
-      </div>
-    </a>
-
-    <a class="flui-produto"
-       href="https://www.mercadolivre.com.br/suporte-celular-magnetico-com-duplo-anel-fidget-spinner-mult/up/MLBU5322216498?pdp_filters=item_id%3AMLB7709674866&sid=bookmarks#polycard_client=wishlist&wid=MLB7709674866&sid=bookmarks"
-       target="_blank" rel="noopener noreferrer sponsored"
-       aria-label="Ver Suporte Magnético para Celular no Mercado Livre">
-      <div class="flui-produto-icone">📱</div>
-      <div class="flui-produto-conteudo">
-        <span class="flui-produto-categoria">CELULAR</span>
-        <h3>Suporte Magnético para Celular</h3>
-        <span class="flui-produto-cta">Ver oferta <b>→</b></span>
-      </div>
-    </a>
-
-    <a class="flui-produto"
-       href="https://produto.mercadolivre.com.br/MLB-4722109147-relogio-de-pulso-esfera-magnetica-pulseira-em-silicone-preto-preto-_JM?sid=bookmarks#polycard_client=wishlist&wid=MLB4722109147&sid=bookmarks"
-       target="_blank" rel="noopener noreferrer sponsored"
-       aria-label="Ver Relógio de Pulso Esfera Magnética no Mercado Livre">
-      <div class="flui-produto-icone">⌚</div>
-      <div class="flui-produto-conteudo">
-        <span class="flui-produto-categoria">ACESSÓRIOS</span>
-        <h3>Relógio de Pulso Esfera Magnética</h3>
-        <span class="flui-produto-cta">Ver oferta <b>→</b></span>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="flui-ofertas-rodape">
-    <span>🛍️</span>
-    <span>Ao clicar, você será direcionado ao Mercado Livre.</span>
-  </div>
-</section>
-
-<style>
-.flui-ofertas {
-  width: 100%;
-  max-width: 1000px;
-  margin: 10px auto 28px;
-  padding: 28px 20px 22px;
-  box-sizing: border-box;
-  border-radius: 24px;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(139,92,246,.18), transparent 34%),
-    radial-gradient(circle at 90% 85%, rgba(56,189,248,.12), transparent 35%),
-    linear-gradient(145deg, rgba(15,23,42,.96), rgba(23,37,84,.88));
-  border: 1px solid rgba(103,232,249,.18);
-  box-shadow: 0 18px 45px rgba(0,0,0,.28), inset 0 0 28px rgba(139,92,246,.04);
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.flui-ofertas-header { text-align:center; margin-bottom:20px; }
-.flui-ofertas-kicker {
-  display:inline-block; margin-bottom:7px; font-size:9px; font-weight:800;
-  letter-spacing:2px; color:#67e8f9;
-}
-.flui-ofertas-header h2 { margin:0; font-size:25px; font-weight:800; }
-.flui-ofertas-header p { margin:7px 0 0; font-size:12px; color:#94a3b8; }
-.flui-produtos { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-.flui-produto {
-  position:relative; min-height:142px; padding:18px; box-sizing:border-box;
-  display:flex; flex-direction:column; justify-content:space-between;
-  text-decoration:none; color:white; border-radius:18px;
-  background:rgba(15,23,42,.72); border:1px solid rgba(255,255,255,.09);
-  box-shadow:0 10px 25px rgba(0,0,0,.18); overflow:hidden;
-  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
-}
-.flui-produto:hover {
-  transform:translateY(-4px); border-color:rgba(103,232,249,.38);
-  box-shadow:0 15px 30px rgba(0,0,0,.25),0 0 22px rgba(56,189,248,.08);
-}
-.flui-produto-icone {
-  width:45px; height:45px; display:flex; align-items:center; justify-content:center;
-  border-radius:13px; background:linear-gradient(135deg,rgba(56,189,248,.18),rgba(139,92,246,.22));
-  border:1px solid rgba(103,232,249,.12); font-size:23px;
-}
-.flui-produto-categoria {
-  display:block; margin-top:12px; font-size:8px; font-weight:800;
-  letter-spacing:1.5px; color:#67e8f9;
-}
-.flui-produto h3 { margin:4px 0 12px; font-size:14px; line-height:1.3; font-weight:700; }
-.flui-produto-cta { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:800; color:#c4b5fd; }
-.flui-produto-cta b { transition:transform .2s ease; }
-.flui-produto:hover .flui-produto-cta b { transform:translateX(4px); }
-.flui-ofertas-rodape {
-  margin-top:18px; display:flex; align-items:center; justify-content:center; gap:7px;
-  font-size:9px; color:#64748b; text-align:center;
-}
-@media (max-width:700px) {
-  .flui-ofertas { margin:8px auto 24px; padding:24px 13px 19px; border-radius:21px; }
-  .flui-ofertas-header h2 { font-size:21px; }
-  .flui-ofertas-header p { font-size:11px; }
-  .flui-produtos { grid-template-columns:1fr; gap:10px; }
-  .flui-produto { min-height:120px; padding:16px; }
-  .flui-ofertas-rodape { line-height:1.4; }
-}
-</style>
-
-<!-- ========================================= -->
-<!-- REDES SOCIAIS - RÁDIO FLUI -->
-<!-- ========================================= -->
-
-<div class="flui-social">
-
-  <!-- INSTAGRAM -->
-
-  <a
-    class="flui-social-button instagram-button"
-    href="https://www.instagram.com/radioflui/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Siga a Rádio Flui no Instagram"
-  >
-
-    <span class="social-icon instagram-icon">
-
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-
-        <rect
-          x="3"
-          y="3"
-          width="18"
-          height="18"
-          rx="5"
-        />
-
-        <circle
-          cx="12"
-          cy="12"
-          r="4.2"
-        />
-
-        <circle
-          cx="17.5"
-          cy="6.5"
-          r="1.2"
-          class="social-dot"
-        />
-
-      </svg>
-
-    </span>
-
-    <span class="social-text">
-
-      <small>INSTAGRAM</small>
-
-      <strong>@radioflui</strong>
-
-    </span>
-
-    <span class="social-arrow">→</span>
-
-  </a>
-
-
-  <!-- TIKTOK -->
-
-  <a
-    class="flui-social-button tiktok-button"
-    href="https://www.tiktok.com/@radioflui"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Siga a Rádio Flui no TikTok"
-  >
-
-    <span class="social-icon tiktok-icon">
-
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-
-        <path
-          d="M16.5 4.2c.7 1.8 2 2.9 3.8 3.2v3.1c-1.4-.1-2.7-.5-3.8-1.2v6.3c0 3.3-2.4 5.4-5.5 5.4-3 0-5.3-2-5.3-4.9 0-3 2.4-5.1 5.5-5.1.4 0 .8 0 1.2.1v3.1c-.4-.1-.7-.2-1.1-.2-1.3 0-2.3.8-2.3 2s.9 2 2.1 2c1.4 0 2.2-.9 2.2-2.5V4.2h3.2z"
-        />
-
-      </svg>
-
-    </span>
-
-    <span class="social-text">
-
-      <small>TIKTOK</small>
-
-      <strong>@radioflui</strong>
-
-    </span>
-
-    <span class="social-arrow">→</span>
-
-  </a>
-
-</div>
-
-
-<style>
-
-/* ========================================= */
-/* REDES SOCIAIS */
-/* ========================================= */
-
-.flui-social {
-
-  width: 100%;
-  max-width: 900px;
-
-  margin: 18px auto 35px;
-
-  display: flex;
-  justify-content: center;
-
-  gap: 14px;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-}
-
-
-/* ========================================= */
-/* BOTÃO */
-/* ========================================= */
-
-.flui-social-button {
-
-  position: relative;
-
-  width: 290px;
-
-  min-height: 68px;
-
-  padding: 10px 16px;
-
-  box-sizing: border-box;
-
-  display: flex;
-  align-items: center;
-
-  border-radius: 18px;
-
-  text-decoration: none;
-
-  color: white;
-
-  overflow: hidden;
-
-  border: 1px solid rgba(255,255,255,.15);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.25);
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
-
-}
-
-
-/* BRILHO */
-
-.flui-social-button::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      110deg,
-      transparent 20%,
-      rgba(255,255,255,.12) 50%,
-      transparent 80%
-    );
-
-  transform: translateX(-120%);
-
-  transition: transform .6s ease;
-
-  pointer-events: none;
-
-}
-
-
-.flui-social-button:hover::before {
-
-  transform: translateX(120%);
-
-}
-
-
-/* HOVER */
-
-.flui-social-button:hover {
-
-  transform: translateY(-3px);
-
-}
-
-
-/* ========================================= */
-/* INSTAGRAM */
-/* ========================================= */
-
-.instagram-button {
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(131,58,180,.38),
-      rgba(253,29,29,.22),
-      rgba(252,176,69,.20)
-    );
-
-}
-
-
-.instagram-button:hover {
-
-  border-color:
-    rgba(252,176,69,.55);
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,.30),
-    0 0 28px rgba(225,48,108,.20);
-
-}
-
-
-/* ========================================= */
-/* TIKTOK */
-/* ========================================= */
-
-.tiktok-button {
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(37,244,238,.16),
-      rgba(0,0,0,.35),
-      rgba(254,44,85,.18)
-    );
-
-}
-
-
-.tiktok-button:hover {
-
-  border-color:
-    rgba(37,244,238,.50);
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,.30),
-    0 0 28px rgba(37,244,238,.16);
-
-}
-
-
-/* ========================================= */
-/* ÍCONES */
-/* ========================================= */
-
-.social-icon {
-
-  width: 44px;
-  height: 44px;
-
-  flex: 0 0 44px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 13px;
-
-}
-
-
-/* INSTAGRAM */
-
-.instagram-icon {
-
-  background:
-    linear-gradient(
-      135deg,
-      #833ab4,
-      #fd1d1d,
-      #fcb045
-    );
-
-  box-shadow:
-    0 5px 18px rgba(131,58,180,.35);
-
-}
-
-
-.instagram-icon svg {
-
-  width: 24px;
-  height: 24px;
-
-  fill: none;
-
-  stroke: white;
-
-  stroke-width: 1.8;
-
-}
-
-
-/* TIKTOK */
-
-.tiktok-icon {
-
-  background:
-    linear-gradient(
-      135deg,
-      #25f4ee,
-      #111111 48%,
-      #fe2c55
-    );
-
-  box-shadow:
-    0 5px 18px rgba(37,244,238,.18);
-
-}
-
-
-.tiktok-icon svg {
-
-  width: 25px;
-  height: 25px;
-
-  fill: white;
-
-}
-
-
-/* PONTO DO INSTAGRAM */
-
-.social-dot {
-
-  fill: white;
-
-  stroke: none;
-
-}
-
-
-/* ========================================= */
-/* TEXTO */
-/* ========================================= */
-
-.social-text {
-
-  display: flex;
-
-  flex-direction: column;
-
-  margin-left: 13px;
-
-  line-height: 1.15;
-
-}
-
-
-.social-text small {
-
-  font-size: 8px;
-
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
-
-  color: #94a3b8;
-
-}
-
-
-.social-text strong {
-
-  margin-top: 4px;
-
-  font-size: 15px;
-
-  font-weight: 700;
-
-  color: white;
-
-}
-
-
-/* ========================================= */
-/* SETA */
-/* ========================================= */
-
-.social-arrow {
-
-  margin-left: auto;
-
-  padding-left: 14px;
-
-  font-size: 22px;
-
-  color: #c4b5fd;
-
-  transition:
-    transform .25s ease;
-
-}
-
-
-.flui-social-button:hover .social-arrow {
-
-  transform: translateX(5px);
-
-}
-
-
-/* ========================================= */
-/* CELULAR */
-/* ========================================= */
-
-@media (max-width: 700px) {
-
-  .flui-social {
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 12px;
-
-  }
-
-  .flui-social-button {
-
-    width: 100%;
-
-    max-width: 340px;
-
-  }
-
-}
-
-</style>
+```
