@@ -448,6 +448,52 @@ body {
   color: #c4b5fd;
 }
 
+
+/* ================================
+   RELÓGIO DISCRETO
+================================ */
+.flui-clock {
+  flex: 0 0 auto;
+  min-width: 58px;
+  text-align: right;
+  line-height: 1;
+  opacity: .78;
+}
+
+.flui-clock-time {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #e2e8f0;
+  font-variant-numeric: tabular-nums;
+}
+
+.flui-clock-date {
+  margin-top: 5px;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* ================================
+   RELÓGIO — MOBILE
+================================ */
+@media (max-width:700px) {
+  .flui-clock {
+    min-width: 55px;
+    margin-left: auto;
+  }
+
+  .flui-clock-time {
+    font-size: 14px;
+  }
+
+  .flui-clock-date {
+    font-size: 7px;
+  }
+}
+
 /* ================================
    MOBILE
 ================================ */
@@ -563,6 +609,11 @@ body {
             <span class="flui-live-dot"></span>
             AO VIVO
           </div>
+        </div>
+
+        <div class="flui-clock" aria-label="Horário atual">
+          <div id="flui-clock-time" class="flui-clock-time">00:00</div>
+          <div id="flui-clock-date" class="flui-clock-date">--/--</div>
         </div>
 
         <div class="flui-now">
@@ -886,6 +937,31 @@ body {
 
   }
 
+
+
+  /* RELÓGIO FLUI */
+  var clockTime = document.getElementById("flui-clock-time");
+  var clockDate = document.getElementById("flui-clock-date");
+
+  function atualizarRelogio() {
+    if (!clockTime || !clockDate) return;
+
+    var agora = new Date();
+
+    clockTime.textContent = agora.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    });
+
+    clockDate.textContent = agora.toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit"
+    });
+  }
+
+  atualizarRelogio();
+  setInterval(atualizarRelogio, 1000);
 
   function atualizarMusica() {
 
